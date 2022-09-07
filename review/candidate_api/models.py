@@ -11,7 +11,7 @@ class Candidate(models.Model):
 
     name = models.CharField(max_length=200, null=False)
     email = models.EmailField(primary_key=True, null=False)
-    contact = models.PositiveIntegerField(max_length=10, null=False)
+    contact = models.PositiveIntegerField(null=False)
 
     # education details
     ssc = models.FloatField(null=False)
@@ -22,7 +22,7 @@ class Candidate(models.Model):
     workexp = models.IntegerField(null=False)
 
     # status
-    status = models.CharField(max_length=100, choices=choices, null=False)
+    status = models.CharField(max_length=100, choices=choices, null=False, default="Applied")
 
     def _str_(self):
         return self.name + "_" + self.email
