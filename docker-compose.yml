@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  web:
+    build: ./review
+    image: "review_api"
+    container_name: "review_api"
+    volumes:
+      - ./review:/review
+    ports:
+      - 8000:8000
+
+  frontend:
+    build: ./review_frontend
+    image: "review_frontend"
+    container_name: "review_frontend"
+    volumes:
+       - './review_frontend/:/frontend/'
+       - './review_frontend/node_modules'
+    ports:
+      - 3000:3000
