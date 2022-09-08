@@ -7,8 +7,6 @@ const Home = () => {
         const axios = require('axios').default;
         axios.get('http://localhost:8000/api/candidates/').then((response) => {
             setCandidates(response.data);
-            // console.log(response.data);
-            // console.log(candidates);
         });
     }, []);
 

@@ -12,12 +12,10 @@ const Candidate = () => {
     }, []);
 
     const update = (e) => {
-        console.log(e);
         let status = document.getElementById("status");
         e.preventDefault();
         let data = {}
         if (status !== null && status.value !== '') data['status'] = status.value;
-        console.log(data);
 
         axios.patch(`http://localhost:8000/api/candidate/${email}`, data).then((response) => {
             if (response.status === 200) {
