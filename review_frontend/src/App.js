@@ -1,24 +1,20 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
+import Navbar from './Navbar';
+import Home from './Home'
+import Candidate from "./Candidate";
+import CreateCandidate from "./CreateCandidate";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          hello there!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+      <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/candidate/:email" element={<Candidate />} />
+          <Route path="/create-candidate/" element={<CreateCandidate />} />
+        </Routes>
+      </BrowserRouter>
   );
 }
 
