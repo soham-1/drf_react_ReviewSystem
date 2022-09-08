@@ -1,5 +1,5 @@
 # Review Api
-This is a **django-rest-framework** based review system where a candidate can fill his presonal details and upload his **resume**.
+This is a **django-rest-framework** based review system where a candidate can fill his presonal details and upload/view/download his **resume**.
 Once uploaded the status of the candidate can be changed to accepted or rejected. The frontend is built with **react.js**. Screenshots of the pages are included in readme below.
 
 ## Clone project
