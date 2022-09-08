@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 
 # Create your models here.
@@ -23,6 +24,8 @@ class Candidate(models.Model):
 
     # status
     status = models.CharField(max_length=100, choices=choices, null=False, default="Applied")
+
+    resume = models.FileField(upload_to="media/resume", null=True)
 
     def _str_(self):
         return self.name + "_" + self.email
