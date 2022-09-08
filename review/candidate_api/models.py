@@ -25,7 +25,8 @@ class Candidate(models.Model):
     # status
     status = models.CharField(max_length=100, choices=choices, null=False, default="Applied")
 
-    resume = models.FileField(upload_to="media/resume", null=True)
+    resume = models.FileField(upload_to="resume", null=True)
+    resume_name = models.CharField(max_length=100, null=True)
 
     def _str_(self):
         return self.name + "_" + self.email

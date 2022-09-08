@@ -7,15 +7,16 @@ const Candidate = () => {
     const axios = require('axios').default;
     useEffect(() => {
         axios.get(`http://localhost:8000/api/candidate/${email}`).then((response) => {
-            // console.log(response);
-            setCandidate(response.data)
+            setCandidate(response.data);
         });
     }, []);
 
     const update = (e) => {
+        console.log(e);
+        let status = document.getElementById("status");
         e.preventDefault();
         let data = {}
-        if (e.target.status !== "") data['status'] = e.target.status.value;
+        if (status !== null && status.value !== '') data['status'] = status.value;
         console.log(data);
 
         axios.patch(`http://localhost:8000/api/candidate/${email}`, data).then((response) => {
@@ -27,49 +28,69 @@ const Candidate = () => {
     }
 
     return (
-        <div class="container my-2 col-lg-7">
-            <form onSubmit={update}>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email address:- {candidate.email}</label>
+        <div class="container my-4 col-lg-7 fs-5">
+            <div class="d-flex mb-3">
+                <div class="d-flex col-lg-3 form-label fw-light justify-content-end me-4">Email:-</div>
+                <div class="col-lg-6 form-label fw-bold">{candidate.email}</div>
+            </div>
+            <div class="d-flex mb-3">
+                <div class="d-flex col-lg-3 form-label fw-light justify-content-end me-4">Name:-</div>
+                <div class="col-lg-6 form-label fw-bold">{candidate.name}</div>
+            </div>
+            <div class="d-flex mb-3">
+                <div class="d-flex col-lg-3 form-label fw-light justify-content-end me-4">Contact:-</div>
+                <div class="col-lg-6 form-label fw-bold">{candidate.contact}</div>
+            </div>
+            <div class="d-flex mb-3">
+                <div class="d-flex col-lg-3 form-label fw-light justify-content-end me-4">SSC:-</div>
+                <div class="col-lg-6 form-label fw-bold">{candidate.ssc}</div>
+            </div>
+            <div class="d-flex mb-3">
+                <div class="d-flex col-lg-3 form-label fw-light justify-content-end me-4">HSC:-</div>
+                <div class="col-lg-6 form-label fw-bold">{candidate.hsc}</div>
+            </div>
+            <div class="d-flex mb-3">
+                <div class="d-flex col-lg-3 form-label fw-light justify-content-end me-4">Degree:-</div>
+                <div class="col-lg-6 form-label fw-bold">{candidate.degree}</div>
+            </div>
+            <div class="d-flex mb-3">
+                <div class="d-flex col-lg-3 form-label fw-light justify-content-end me-4">Work Experience:-</div>
+                <div class="col-lg-6 form-label fw-bold">{candidate.workexp}</div>
+            </div>
+            <div class="d-flex mb-3">
+                <div class="d-flex col-lg-3 form-label fw-light justify-content-end me-4">View Resume:-</div>
+                <div class="col-lg-6 form-label fw-bold">
+                    <a className="form-label ms-2" href={candidate.resume} target="_blank">
+                        {candidate.resume_name}
+                    </a>
                 </div>
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name:- {candidate.name}</label>
-                </div>
-                <div class="mb-3">
-                    <label for="contact" class="form-label">Contact:- {candidate.contact}</label>
-                </div>
-                <div class="mb-3">
-                    <label for="ssc" class="form-label">SSC:- {candidate.ssc}</label>
-                </div>
-                <div class="mb-3">
-                    <label for="hsc" class="form-label">HSC:- {candidate.hsc}</label>
-                </div>
-                <div class="mb-3">
-                    <label for="degree" class="form-label">Degree:- {candidate.degree}</label>
-                </div>
-                <div class="mb-3">
-                    <label for="workexp" class="form-label">WorkExp:- {candidate.workexp}</label>
-                </div>
-                <div class="mb-3">
-                    <label for="workexp" class="form-label">Status - {candidate.status}</label>
-                </div>
+            </div>
+            <div class="d-flex mb-3">
+                <div class="d-flex col-lg-3 form-label fw-light justify-content-end me-4">Status:-</div>
+                <div class="col-lg-6 form-label fw-bold">{candidate.status}</div>
+            </div>
+            <div class="d-flex mb-3">
                 { candidate.status == "Applied" ?
                     <>
-                    <div class="mb-3">
-                        <label for="status" class="form-label">Change Status</label>
-                        <select class="form-select" aria-label="Default select example" id="status">
-                            <option defaultValue value="">--Select--</option>
-                            <option  value="Accepted">Accept</option>
-                            <option value="Rejected">Reject</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                        <div class="d-flex col-lg-3 fw-light justify-content-end me-4">Change Status</div>
+                        <div class="col-lg-6 fw-bold">
+                            <select id="status">
+                                <option defaultValue value="">--Select--</option>
+                                <option  value="Accepted">Accept</option>
+                                <option value="Rejected">Reject</option>
+                            </select>
+                        </div>
                     </>
                     : <></>
                 }
-                
-                
-            </form>
+            </div>
+            <div class="d-flex mb-3">
+                <div class="col-lg-3 me-4"></div>
+                <div class="col-lg-6 fw-bold">
+                    <button type="submit" class="btn btn-primary" onClick={update}>Update</button> 
+                </div>
+            </div>
+             
         </div>
     );
 }
