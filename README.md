@@ -47,11 +47,11 @@ This api has following endpoints
 * ```api/candidate/<email>/``` - returns details of specific candidate, supports requests like get, post, patch
 
 pages -
-### home page
+### home page - This page lists all the candidates and some of their important details
 ![Home page.JPG](/screenshots/Home_page.jpg)
 <br>
 ### create candidate page
 ![create candidate.JPG](/screenshots/create_candidate.jpg)
 <br>
-### update candidate page
+### update candidate page - Applied candidates can be accepted or rejected here
 ![update candidate.JPG](/screenshots/update_candidate.jpg)
