@@ -47,6 +47,6 @@ This api has following endpoints
 * ```api/candidate/<email>/``` - returns details of specific candidate, supports requests like get, post, patch
 
 pages -
-![Home page.JPG](/ss/Home page.jpg)
-![create candidate.JPG](/ss/create candidate.jpg)
-![update candidate.JPG](/ss/update candidate.jpg)
+![Home page.JPG](/screenshots/Home_page.jpg)
+![create candidate.JPG](/screenshots/create_candidate.jpg)
+![update candidate.JPG](/screenshots/update_candidate.jpg)
