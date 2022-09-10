@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import Navbar from './Navbar';
+
 const Home = () => {
     const [candidates, setCandidates] = useState([]);
     useEffect(() => {
@@ -32,11 +34,14 @@ const Home = () => {
     );
 
     return (
-        <div className="d-flex h-100 justify-content-center bg-light">
-            <div class="d-flex-vertical list-group align-items-center col-lg-8 mt-3">
-                {candidateList}
+        <>
+            <Navbar />
+            <div className="d-flex h-100 justify-content-center bg-light">
+                <div class="d-flex-vertical list-group align-items-center col-lg-8 mt-3">
+                    {candidateList}
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 

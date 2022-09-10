@@ -7,6 +7,8 @@ services:
     container_name: "review_api"
     volumes:
       - ./review:/review
+    environment:
+      - PYTHONUNBUFFERED: 1 # helps print data to docker log
     ports:
       - 8000:8000
 

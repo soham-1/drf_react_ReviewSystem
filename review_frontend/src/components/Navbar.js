@@ -15,6 +15,16 @@ function Navbar() {
                             <Link className="nav-link active text-white" aria-current="page" to="/create-candidate">Add Candidate</Link>
                             </li>
                         </ul>
+                        <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0 pr-4">
+                            <li class="nav-item">
+                            <Link className="nav-link active text-white" aria-current="page" to="/register">Register</Link>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0 pr-4">
+                            <li class="nav-item">
+                            <Link className="nav-link active text-white" aria-current="page" to="/login">Login</Link>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </nav>

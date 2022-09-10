@@ -17,7 +17,7 @@ const CreateCandidate = () => {
                 'Content-Type': 'multipart/form-data'
               }
         }
-        axios.post(`http://localhost:8000/api/candidate/${data.email}`, data, config).then((response) => {
+        axios.post(`candidate/${data.email}`, data, config).then((response) => {
             if (response.status === 201)
                 alert("new candidate added");
                 window.location.reload();
